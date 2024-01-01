@@ -17,7 +17,7 @@ import React from "react";
     userconnect.id = ""; //remet l'id du user connecter qui se trouve dans le localStorage a chaine vide
     userconnect.email = ""; //remet l'email du user connecter qui se trouve dans le localStorage a chaine vide
     localStorage.setItem("UserOnline", JSON.stringify(userconnect));
-    Navigate("/login");
+    Navigate("/");
     // Rediriger vers la page de connexion ou une autre page si nécessaire
   };
 
@@ -28,7 +28,7 @@ import React from "react";
           <li>
             <button id="connexion">
               {userconnect.email !== "" ? (
-                <Link to="/login" id="connecter" onClick={handleLogout}>
+                <Link to="/" id="connecter" onClick={handleLogout}>
                   Se Deconnecter
                 </Link>
               ) : (
