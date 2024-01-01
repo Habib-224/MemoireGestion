@@ -9,7 +9,8 @@ const Home = () => {
   const [description, setDescription] = useState("");
   const [contexte, setContexte] = useState("");
   const [problematique, setProblematique] = useState("");
-  const [domaine,setDomaine] = useState("informatique");
+  const [domaine, setDomaine] = useState("informatique");
+    const [selectedMemoire, setSelectedMemoire] = useState(null);
   const MemoireAjout = JSON.parse(localStorage.getItem("Memoire")) || [];
 
   
@@ -52,10 +53,19 @@ const Home = () => {
     }
   };
 
-  const handleGetId = (id) => {
+  var memoiretrouve;
+  const DetailMemoire = (id) => {
     alert(id);
+    const MemoireId = JSON.parse(localStorage.getItem("Memoire")) || [];
+    const foundMemoire = MemoireId.find((memoire) => memoire.id === id);
+
+    if (foundMemoire) { 
+      
+     setSelectedMemoire(foundMemoire);
+    }
+
     //  console.log("ID du mémoire récupéré :", id);
-   };
+  };
   
   const handleMemoire = () => {
     const MemoireAjout = JSON.parse(localStorage.getItem("Memoire")) || [];
@@ -84,7 +94,7 @@ const Home = () => {
     return (
       <div className="Home">
         <Menu></Menu>
-        {userconnect.email !== "" ? (
+        {userconnect.email !== "" && (
           <button
             id="publierMemoire"
             data-bs-toggle="modal"
@@ -93,8 +103,6 @@ const Home = () => {
           >
             Publier un Memoire
           </button>
-        ) : (
-          <button></button>
         )}
 
         {/* Champ de recherche */}
@@ -117,7 +125,7 @@ const Home = () => {
                 <p class="">Publié par {memoire.createdby}</p>
               </div>
               <div class="footer">
-                {userconnect.email !== "" &&(
+                {userconnect.email !== "" && (
                   <button
                     type="button"
                     class="action"
@@ -130,17 +138,16 @@ const Home = () => {
                     Telecharger
                   </button>
                 )}
-                  <button
-                    type="button"
-                    class="action"
-                    // onClick={() => handleGetId(memoire.id)}
-                    // data-bs-toggle="modal"
-                    // data-bs-target="#exampleModal"
-                  >
-                    {" "}
-                    Voir
-                  </button>
-               
+                <button
+                  type="button"
+                  class="action"
+                  onClick={() => DetailMemoire(memoire.id)}
+                  data-bs-toggle="modal"
+                  data-bs-target="#exampleModal"
+                >
+                  {" "}
+                  Voir
+                </button>
               </div>
             </div>
           ))}
@@ -157,7 +164,7 @@ const Home = () => {
             <div class="modal-content">
               <div class="modal-header">
                 <h1 class="modal-title fs-5" id="exampleModalLabel">
-                  Modal title
+                  Detail Memoire
                 </h1>
                 <button
                   type="button"
@@ -166,7 +173,13 @@ const Home = () => {
                   aria-label="Close"
                 ></button>
               </div>
-              <div class="modal-body">...</div>
+              <div class="modal-body">
+                {/* <p>{memoiretrouve.titre}</p> */}
+                <p>Titre: {selectedMemoire?.titre}</p>
+                <p>Contexte: {selectedMemoire?.contexte}</p>
+                <p>Description: {selectedMemoire?.description}</p>
+                <p>Problematique: {selectedMemoire?.problematique}</p>
+              </div>
               <div class="modal-footer">
                 <button
                   type="button"
@@ -174,9 +187,6 @@ const Home = () => {
                   data-bs-dismiss="modal"
                 >
                   Close
-                </button>
-                <button type="button" class="btn btn-primary">
-                  Save changes
                 </button>
               </div>
             </div>
