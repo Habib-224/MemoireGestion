@@ -258,6 +258,9 @@ const Home = () => {
                     id="option"
                   >
                     <option value="">Sélectionnez un domaine</option>
+                    <option value="Informatique">
+                      Informatique
+                    </option>
                     <option value="Psychologie">Psychologie</option>
                     <option value="Économie et finance">
                       Économie et finance
