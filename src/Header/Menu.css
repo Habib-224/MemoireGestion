@@ -1,0 +1,32 @@
+#menu{
+    background-color: #1B9476;
+    padding: 0.5em;
+    color: white;
+}
+
+#menu ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+#menu ul li{
+    margin-top: 10px;
+}
+
+
+#connexion{
+    background-color: white;
+    padding: 0.6em;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#connecter{
+    text-decoration: none;
+    color: black;
+}
