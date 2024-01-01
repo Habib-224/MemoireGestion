@@ -10,49 +10,9 @@ const Home = () => {
   const [contexte, setContexte] = useState("");
   const [problematique, setProblematique] = useState("");
   const [domaine,setDomaine] = useState("informatique");
-
   const MemoireAjout = JSON.parse(localStorage.getItem("Memoire")) || [];
 
-  // const memoires = [
-  //   {
-  //     id: 1,
-  //     nom: "Thierno Habib Bah",
-  //     titre: "Conception et realisation d'un site E-commerce",
-  //     description: "Ceci est la description du sujet",
-  //     contexte: "Ceci est le contexte du sujet",
-  //     problématique: "Ceci est la problématique du sujet",
-  //     domaine: "Informatique",
-  //   },
-  //   {
-  //     id: 2,
-  //     nom: "Dieynaba Sene",
-  //     titre: "Conception et realisation d'un site E-commerce",
-  //     description: "Ceci est la description du sujet",
-  //     contexte: "Ceci est le contexte du sujet",
-  //     problématique: "Ceci est la problématique du sujet",
-  //     domaine: "Informatique",
-  //   },
-  //   {
-  //     id: 3,
-  //     nom: "Amadem Fall",
-  //     titre: "Conception et realisation d'un site E-commerce",
-  //     description: "Ceci est la description du sujet",
-  //     contexte: "Ceci est le contexte du sujet",
-  //     problématique: "Ceci est la problématique du sujet",
-  //     domaine: "Informatique",
-  //   },
-  //   {
-  //     id: 4,
-  //     nom: "Astou Diouf",
-  //     titre: "Conception et realisation d'un site E-commerce",
-  //     description: "Ceci est la description du sujet",
-  //     contexte: "Ceci est le contexte du sujet",
-  //     problématique: "Ceci est la problématique du sujet",
-  //     domaine: "Informatique",
-  //   },
-  //   // ... Ajoutez d'autres objets mémoires ici si nécessaire
-  // ];
-
+  
   const generatePDF = (id) => {
     const doc = new jsPDF();
     const userconnect = JSON.parse(localStorage.getItem("UserOnline")) || [];
@@ -87,7 +47,6 @@ const Home = () => {
         doc.text(line, 10, 130 + index * 10);
       });
      
-
       // Télécharger le PDF
       doc.save("donnees-utilisateur.pdf");
     }
@@ -170,6 +129,16 @@ const Home = () => {
                   {" "}
                   Telecharger
                 </button>
+                <button
+                  type="button"
+                  class="action"
+                  // onClick={() => handleGetId(memoire.id)}
+                  // data-bs-toggle="modal"
+                  // data-bs-target="#exampleModal"
+                >
+                  {" "}
+                  Voir
+                </button>
               </div>
             </div>
           ))}
@@ -219,7 +188,7 @@ const Home = () => {
           aria-labelledby="exampleModalLabel"
           aria-hidden="true"
         >
-          <div class="modal-dialog  modal-lg">
+          <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
                 <h1 class="modal-title fs-5" id="exampleModalLabel">
@@ -233,7 +202,7 @@ const Home = () => {
                 ></button>
               </div>
               <div class="modal-body">
-                <form className="form1">
+                <form className="form1" id="Modal_input">
                   <div className="input-container1">
                     <input
                       type="text"
@@ -274,6 +243,7 @@ const Home = () => {
                     name="domaine"
                     value={domaine}
                     onChange={(e) => setDomaine(e.target.value)}
+                    id="option"
                   >
                     <option value="">Sélectionnez un domaine</option>
                     <option value="Psychologie">Psychologie</option>
@@ -293,8 +263,10 @@ const Home = () => {
                     type="submit"
                     className="submit1"
                     onClick={handleMemoire}
+                    id="button_publier"
+
                   >
-                    Publier
+                    Publier 
                   </button>
                 </form>
               </div>

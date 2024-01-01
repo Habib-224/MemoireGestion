@@ -7,17 +7,20 @@ import {
   Navigate,
 } from "react-router-dom";
 import React from "react";
-const Menu = () => {
+  const Menu = () => {
+  // la constante Userconnect recupere l'objet de l'utilisateur Connecté;
   const userconnect = JSON.parse(localStorage.getItem("UserOnline")) || [];
+
+  //La function handleLogout permet de deconnecter un utilisateur connécté 
   const handleLogout = () => {
     const userconnect = JSON.parse(localStorage.getItem("UserOnline")) || {};
-    userconnect.id = "";
-    userconnect.email = "";
+    userconnect.id = ""; //remet l'id du user connecter qui se trouve dans le localStorage a chaine vide
+    userconnect.email = ""; //remet l'email du user connecter qui se trouve dans le localStorage a chaine vide
     localStorage.setItem("UserOnline", JSON.stringify(userconnect));
     Navigate("/login");
     // Rediriger vers la page de connexion ou une autre page si nécessaire
   };
-  // console.log("je suis le userconnecter"+userconnect.email);
+
     return (
       <div className="Menu" id="menu">
         <ul>

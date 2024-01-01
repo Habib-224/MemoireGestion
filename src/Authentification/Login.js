@@ -22,11 +22,8 @@ const Login = () => {
         const existingData = JSON.parse(localStorage.getItem("Utilisateur")) || [];
         const userconnect = JSON.parse(localStorage.getItem("UserOnline")) || [];
 
-        // console.log(existingData) pour voir les données du localStorage
         let tailleUtilisateur = existingData.length +1;
         setId(tailleUtilisateur);
-
-        // console.log(tailleUtilisateur)
 
       // Crée un nouvel objet pour la nouvelle donnée
         const newData = { id: tailleUtilisateur,nom,prenom,email,password};
@@ -37,7 +34,6 @@ const Login = () => {
       // Met à jour localStorage avec les nouvelles données
       localStorage.setItem("Utilisateur", JSON.stringify(updatedData));
 
-    //   console.log(existingData);
 
       // Réinitialise les champs après l'ajout
       setNom("");

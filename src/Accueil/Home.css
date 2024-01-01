@@ -106,5 +106,36 @@
   width: 400px;
 }
 
+#Modal_input input{
+  width: 350px;
+  /* height: 40px; */
+  padding: 0.5em;
+  display: block;
+  margin: auto;
+  border-radius: 10px;
+  margin-bottom: 13px;
+  outline: none;
+}
+
+#option{
+  width: 350px;
+  /* height: 40px; */
+  padding: 0.5em;
+  display: block;
+  margin: auto;
+  border-radius: 10px;
+  margin-bottom: 13px;
+  outline: none;
+}
+
+#button_publier{
+  background-color: #1B9476;
+  padding: 0.7em;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  color: white;
+  margin-left: 60px;
+}
 
 
