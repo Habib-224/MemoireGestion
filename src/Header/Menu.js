@@ -10,7 +10,6 @@ import React from "react";
 const Menu = () => {
   const userconnect = JSON.parse(localStorage.getItem("UserOnline")) || [];
   const handleLogout = () => {
-    
     const userconnect = JSON.parse(localStorage.getItem("UserOnline")) || {};
     userconnect.id = "";
     userconnect.email = "";
@@ -18,7 +17,7 @@ const Menu = () => {
     Navigate("/login");
     // Rediriger vers la page de connexion ou une autre page si nécessaire
   };
-  console.log("je suis le userconnecter"+userconnect.email);
+  // console.log("je suis le userconnecter"+userconnect.email);
     return (
       <div className="Menu" id="menu">
         <ul>

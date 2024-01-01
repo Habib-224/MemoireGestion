@@ -158,7 +158,7 @@ const Home = () => {
                 <p class="">Publié par {memoire.createdby}</p>
               </div>
               <div class="footer">
-                <p class="tag">{memoire.createdby}</p>
+                {/* <p class="tag">{memoire.createdby}</p> */}
                 <button
                   type="button"
                   class="action"

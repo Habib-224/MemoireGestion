@@ -60,7 +60,7 @@ const Login = () => {
         setLoggedIn(true);
         setUserDetails({ id: foundUser.id, email: foundUser.email });
         localStorage.setItem("UserOnline",JSON.stringify({ id: foundUser.id, email: foundUser.email }));
-        navigate("/Home");
+        navigate("/");
         Swal.fire({
           title: "Bienvenu!",
           text: "Connecté avec succès!",
