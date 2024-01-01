@@ -55,7 +55,7 @@ const Home = () => {
 
   var memoiretrouve;
   const DetailMemoire = (id) => {
-    alert(id);
+    // alert(id);
     const MemoireId = JSON.parse(localStorage.getItem("Memoire")) || [];
     const foundMemoire = MemoireId.find((memoire) => memoire.id === id);
 
