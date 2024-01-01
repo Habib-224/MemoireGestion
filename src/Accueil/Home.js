@@ -117,28 +117,30 @@ const Home = () => {
                 <p class="">Publié par {memoire.createdby}</p>
               </div>
               <div class="footer">
-                {/* <p class="tag">{memoire.createdby}</p> */}
-                <button
-                  type="button"
-                  class="action"
-                  // onClick={() => handleGetId(memoire.id)}
-                  // data-bs-toggle="modal"
-                  // data-bs-target="#exampleModal"
-                  onClick={() => generatePDF(memoire.id)}
-                >
-                  {" "}
-                  Telecharger
-                </button>
-                <button
-                  type="button"
-                  class="action"
-                  // onClick={() => handleGetId(memoire.id)}
-                  // data-bs-toggle="modal"
-                  // data-bs-target="#exampleModal"
-                >
-                  {" "}
-                  Voir
-                </button>
+                {userconnect.email !== "" &&(
+                  <button
+                    type="button"
+                    class="action"
+                    // onClick={() => handleGetId(memoire.id)}
+                    // data-bs-toggle="modal"
+                    // data-bs-target="#exampleModal"
+                    onClick={() => generatePDF(memoire.id)}
+                  >
+                    {" "}
+                    Telecharger
+                  </button>
+                )}
+                  <button
+                    type="button"
+                    class="action"
+                    // onClick={() => handleGetId(memoire.id)}
+                    // data-bs-toggle="modal"
+                    // data-bs-target="#exampleModal"
+                  >
+                    {" "}
+                    Voir
+                  </button>
+               
               </div>
             </div>
           ))}
@@ -264,9 +266,8 @@ const Home = () => {
                     className="submit1"
                     onClick={handleMemoire}
                     id="button_publier"
-
                   >
-                    Publier 
+                    Publier
                   </button>
                 </form>
               </div>
